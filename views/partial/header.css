@@ -25,6 +25,8 @@
   }
 
   .navbar {
+     position: fixed; /* Ensure the navbar stays fixed at the top */
+    top: 0; /* Align the navbar at the top of the viewport */
       box-shadow: 0px 5px 10px 0px #aaa;
       width: 100%;
       background: rgb(134, 31, 65);
@@ -36,6 +38,7 @@
   }
 
   .navbar-container {
+    padding: 0 20px; /* Add some padding to the navbar container */
       display: flex;
       justify-content: space-between;
       height: 64px;
