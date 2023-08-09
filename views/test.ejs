@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Quiz</title>
+    <link rel="stylesheet" href="css/quiz.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Technical Quiz</h1>
+        <form id="quizForm" method="post" action="/test/<%=job%>">
+            <% questions.forEach(function(question, index) { %>
+            <div class="question">
+                <p><%= index + 1 %>. <%= question.question %></p>
+                   <div class="options">
+                    <label><input type="radio" name="<%= index + 1 %>"
+                                  value='<%= JSON.stringify({ questionId: question._id, optionValue: question.option1 }) %>'>
+                                  <%= question.option1 %></label>
+                    <label><input type="radio" name="<%= index + 1 %>"
+                                  value='<%= JSON.stringify({ questionId: question._id, optionValue: question.option2 }) %>'>
+                                  <%= question.option2 %></label>
+                    <label><input type="radio" name="<%= index + 1 %>"
+                                  value='<%= JSON.stringify({ questionId: question._id, optionValue: question.option3 }) %>'>
+                                  <%= question.option3 %></label>
+                    <label><input type="radio" name="<%= index + 1 %>"
+                                  value='<%= JSON.stringify({ questionId: question._id, optionValue: question.option4 }) %>'>
+                                  <%= question.option4 %></label>
+                </div>
+            <% }); %>
+            <div class="submit-btn">
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+
+</body>
+
+<style>
+            body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+
+            border: 1px solid #ccc;
+            background-color: #fff;
+            box-shadow: 0 9px 50px #97144d;
+            border-radius: 5px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #97144d;
+        }
+
+        .question {
+            margin-bottom: 10px;
+        }
+
+        .options {
+            margin-left: 20px;
+            color: #97144d;
+        }
+
+        .options label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .options input {
+            margin-right: 5px;
+        }
+
+        .submit-btn {
+            display: block;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .submit-btn input {
+            color: white;
+            height: 40px;
+            font-size: 25px;
+            width: 30%;
+            /* background: linear-gradient(to left, #97144d, transparent); */
+            background-color: #97144d;
+            border-top-left-radius: 1rem;
+            border-bottom-left-radius: 1rem;
+            border-top-right-radius: 1rem;
+            border-bottom-right-radius: 1rem;
+        }
+
+        .submit-btn input:hover {
+            box-shadow: 0px 0px 10px #97144d;
+            color: #97144d;
+            background-color: white;
+        }
+</style>
+</html>

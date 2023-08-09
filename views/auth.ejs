@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <link href="/css/auth.css" rel="stylesheet" type="text/css" />
+    <script src="index.js" defer></script>
+  </head>
+
+  <body>
+    <%- include("partial/headerAuth.ejs" );%>
+    <div id="vanta-container">
+      <!-- Vanta.js animation will be rendered here -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    </div>
+
+    <div id="content-container">
+      <div class="form-modal">
+        <div class="form-toggle">
+          <button id="login-toggle" onclick="toggleLogin()">log in</button>
+          <button id="signup-toggle" onclick="toggleSignup()">sign up</button>
+        </div>
+
+        <div id="login-form">
+          <form action="/auth/login" method="post">
+            <input type="email" placeholder="Enter email" name="Email" />
+            <input
+              type="password"
+              placeholder="Enter password"
+              name="Password"
+            />
+            <button type="submit" class="btn login">login</button>
+          </form>
+        </div>
+
+        <div id="signup-form">
+          <form action="/auth/register" method="post">
+            <input type="text" placeholder="Enter your name" name="Name" />
+            <input type="email" placeholder="Enter your email" name="Email" />
+            <input
+              type="password"
+              placeholder="Create password"
+              name="Password"
+            />
+            <button type="submit" class="btn signup">create account</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+
+    <script>
+
+        var textWrapper = document.querySelector('.ml11 .letters');
+textWrapper.innerHTML = textWrapper.textContent.replace(/([^\x00-\x80]|\w)/g, "<span class='letter'>$&</span>");
+
+       anime
+        .timeline({ loop: false })
+        .add({
+          targets: ".ml11 .line",
+          scaleY: [0, 1],
+          opacity: [0.5, 1],
+          easing: "easeOutExpo",
+          duration: 700,
+        })
+        .add({
+          targets: ".ml11 .line",
+          translateX: [
+            0,
+            document.querySelector(".ml11 .letters").getBoundingClientRect()
+              .width + 10,
+          ],
+          easing: "easeOutExpo",
+          duration: 700,
+          delay: 100,
+        })
+        .add({
+          targets: ".ml11 .letter",
+          opacity: [0, 1],
+          easing: "easeOutExpo",
+          duration: 600,
+          offset: "-=775",
+          delay: (el, i) => 34 * (i + 1),
+        })
+        .add({
+          targets: ".ml11 .line",
+          opacity: 0,
+          duration: 1000,
+          easing: "easeOutExpo",
+          delay: 1000,
+        });
+
+      
+
+       function toggleSignup() {
+    document.getElementById("login-toggle").style.backgroundColor = "#fff";
+    document.getElementById("login-toggle").style.color = "#222";
+    document.getElementById("signup-toggle").style.backgroundColor = "rgb(134,31,65)";
+    document.getElementById("signup-toggle").style.color = "#fff";
+    document.getElementById("login-form").style.display = "none";
+    document.getElementById("signup-form").style.display = "block";
+}
+
+function toggleLogin() {
+    document.getElementById("login-toggle").style.backgroundColor = "rgb(134,31,65)";
+    document.getElementById("login-toggle").style.color = "#fff";
+    document.getElementById("signup-toggle").style.backgroundColor = "#fff";
+    document.getElementById("signup-toggle").style.color = "#222";
+    document.getElementById("signup-form").style.display = "none";
+    document.getElementById("login-form").style.display = "block";
+}
+    </script>
+  </body>
+</html>

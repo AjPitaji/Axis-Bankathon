@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Axis bank apply form</title>
+    
+    <link rel="stylesheet" href="/css/apply.css" type="text/css" />
+  </head>
+  <body>
+    <%- include("partial/header.ejs" );%>
+
+    <div class="background">
+      <div class="container">
+        <div class="screen">
+          <div class="screen-header">
+            <div class="screen-header-left">
+              <div class="screen-header-button close"></div>
+              <div class="screen-header-button maximize"></div>
+              <div class="screen-header-button minimize"></div>
+            </div>
+            <div class="screen-header-right">
+              <div class="screen-header-ellipsis"></div>
+              <div class="screen-header-ellipsis"></div>
+              <div class="screen-header-ellipsis"></div>
+            </div>
+          </div>
+          <div class="screen-body">
+            <div class="screen-body-item left">
+              <div class="app-title">
+                <span>APPLY HERE</span>
+              </div>
+              <div class="app-contact">By filling this form you add your Skillsets to our database and you may be filtered for a job matching your skillset</div>
+            </div>
+            <div class="screen-body-item">
+              <div class="app-form">
+                <form action="/apply" method="post">
+                  <div class="app-form-group">
+                    <input class="app-form-control" name="name" placeholder="NAME" value="<%=name%>" readonly required>
+                  </div>
+                  <div class="app-form-group">
+                    <input class="app-form-control" name="email" placeholder="EMAIL" value="<%=email%>" readonly required>
+                  </div>
+                  <div class="app-form-group">
+                    <input class="app-form-control" name="skill1" placeholder="Skill 1" required>
+                  </div>
+                  <div class="app-form-group">
+                    <textarea class="app-form-control" name="description1" placeholder="Description 1" required></textarea>
+                  </div>
+                  <div class="app-form-group">
+                    <input class="app-form-control" name="skill2" placeholder="Skill 2" required>
+                  </div>
+                  <div class="app-form-group">
+                    <textarea class="app-form-control" name="description2" placeholder="Description 2" required></textarea>
+                  </div>
+                  <div class="app-form-group">
+                    <input class="app-form-control" name="skill3" placeholder="Skill 3">
+                  </div>
+                  <div class="app-form-group">
+                    <textarea class="app-form-control" name="description3" placeholder="Description 3"></textarea>
+                  </div>
+                  <div class="app-form-group buttons">
+                    <button type="submit" class="app-form-button">APPLY</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

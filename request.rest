@@ -1,0 +1,30 @@
+POST http://localhost:3000/filter
+Content-Type: application/json
+
+{
+    "job":"website development and project manager"
+}
+
+###
+GET http://localhost:3000/Applicants
+
+###
+GET http://localhost:3000/selectedApplicants
+
+###
+POST http://localhost:3000/email
+Content-Type: application/json
+
+{
+    "job":"web developer"
+}
+
+###
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{
+    "Name":"Jayanth",
+    "Email":"ch@gmail.com",
+    "Password": "sports@123"
+}

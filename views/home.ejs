@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>job-listings</title>
+    <link href="/css/home.css" rel="stylesheet" type="text/css" />
+      <%- include("partial/header.ejs" );%>
+
+    
+</head>
+
+<body>
+    <h1>Jobs you can apply for</h1>
+    <center><h2>click on the job titles to give the test for that job and update your skills with apply button</h2></center>
+
+    
+    <div class="cards">
+     <% listings.forEach(function(listing, index) { %>
+        <div class="card">
+            <img src="https://img.freepik.com/free-vector/lying-arrow-concept-illustration_114360-8531.jpg?w=826&t=st=1691510438~exp=1691511038~hmac=d236d10d61e92f4178e9d8619976a7762a62b0bcfd2287ecc4d9646a7c2999de" alt="" >
+
+            <a href="/test/<%=listing.Title%>">
+                <h3><%=listing.Title%></h3>
+            </a>
+
+        </div>
+     <%})%>
+    </div>
+    
+    <div class="buttons-container">
+        <a href="/apply"><button class="button-arounder">Apply</button></a>
+    </div>
+    <h3 style="padding-left: 10px;"> *quizes will help you enhance your profile and better chance of getting job</h3>
+</body>
+
+</html>
+
+

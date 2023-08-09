@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>All applicants</title>
+    <!-- <link rel="stylesheet" href="/axis-nav-selectCandidates/select.css" /> -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
+  </head>
+
+  <body>
+    <%- include("partial/headerAdmin.ejs" );%>
+
+    <div class="card-container">
+      <% selected.forEach(function(candidate){%>
+      <div class="card" data-aos="fade-up">
+        <div class="imgg">
+          <img
+            class="img"
+            src="https://cdn-icons-png.flaticon.com/512/727/727399.png?w=826&t=st=1691586382~exp=1691586982~hmac=a75c2b9bad09f63d0418098d41d83e63b79b07f745f67babceb22b3eccbd9632"
+            alt="Not Found"
+            style="object-fit: cover";
+          />
+          <p
+            style="
+              font-weight: 800;
+              font-family: Georgia, 'Times New Roman', Times, serif;
+            "
+          >
+            <u><%=candidate.Name%></u>
+          </p>
+        </div>
+        <div class="details">
+          <% if (candidate["Skill 1"] && candidate["Skill 2"] &&
+          candidate["Skill 3"]) { %>
+          <p>
+            <em>Other Skills:</em> <%=candidate["Skill 1"]%>,
+            <%=candidate["Skill 2"]%>, <%=candidate["Skill 3"]%>
+          </p>
+          <% } %> <%if (candidate.marks.length!=0){%>
+            <em>Marks in Tests</em>
+            <%candidate.marks.forEach(function(mark) { %>
+          <p><%= mark.topic %> : <%= mark.marks %> marks</p>
+          <% }) %> <%}%>
+        </div>
+        <img
+          src="https://img.icons8.com/?size=512&id=xgHSjMi7K555&format=png"
+          alt=""
+          style="height: 30px; left: 90%; bottom: 90%; position: absolute"
+        />
+      </div>
+      <%})%>
+    </div>
+
+    <div class="footar" data-aos="fade-up">
+      <footer>
+        <div class="footer-content">
+          <h3>Axis Bank</h3>
+          <p>
+            The bank offers corporate banking, trade finance, treasury and risk
+            management through the branches at Singapore, Hong Kong, DIFC,
+            Shanghai and Colombo.
+          </p>
+          <ul class="socials">
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">LinkedIn</a></li>
+            <li><a href="#">Instagram</a></li>
+          </ul>
+        </div>
+        <div class="footer-bottom">
+          <p>© 2023 Axis Bank</p>
+        </div>
+      </footer>
+    </div>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      @import url("https://fonts.googleapis.com/css2?family=Lato&display=swap");
+
+      *,
+      *::after,
+      *::before {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+
+      .html {
+        font-size: 62.5%;
+      }
+
+      .navbar input[type="checkbox"],
+      .navbar .hamburger-lines {
+        display: none;
+      }
+
+      .container {
+        max-width: 1200px;
+        width: 90%;
+        margin: auto;
+        padding: 30px;
+      }
+
+      .navbar {
+        box-shadow: 0px 5px 10px 0px #aaa;
+        position: relative;
+        width: 100%;
+        background: rgb(134, 31, 65);
+        background: linear-gradient(
+          45deg,
+          rgba(134, 31, 65, 1) 0%,
+          rgba(134, 31, 65, 1) 46%,
+          rgba(254, 254, 254, 1) 53%
+        );
+        color: #000;
+        opacity: 0.85;
+        z-index: 100;
+        top: -103px;
+      }
+
+      .navbar-container {
+        display: flex;
+        justify-content: space-between;
+        height: 64px;
+        align-items: center;
+      }
+
+      .menu-items {
+        order: 2;
+        display: flex;
+      }
+
+      .logo {
+        order: 1;
+        padding: 2px;
+        font-size: 2.3rem;
+      }
+
+      .menu-items li {
+        list-style: none;
+        margin-left: 1.5rem;
+        font-size: 1.3rem;
+      }
+
+      h1 em {
+        text-decoration: underline;
+      }
+
+      .navbar a {
+        color: rgb(134, 31, 65);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease-in-out;
+        /* color: rgb(255, 255, 255); */
+        font-family: "Lato", sans-serif;
+      }
+
+      .navbar a:hover {
+        text-decoration: underline;
+      }
+
+      @media (max-width: 768px) {
+        .navbar {
+          opacity: 0.95;
+        }
+
+        .navbar-container input[type="checkbox"],
+        .navbar-container .hamburger-lines {
+          display: block;
+        }
+
+        .navbar-container {
+          display: block;
+          position: relative;
+          height: 64px;
+        }
+
+        .navbar-container input[type="checkbox"] {
+          position: absolute;
+          display: block;
+          height: 32px;
+          width: 30px;
+          top: 20px;
+          left: 20px;
+          z-index: 5;
+          opacity: 0;
+          cursor: pointer;
+        }
+
+        .navbar-container .hamburger-lines {
+          display: block;
+          height: 28px;
+          width: 35px;
+          position: absolute;
+          top: 20px;
+          left: 20px;
+          z-index: 2;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+        }
+
+        .navbar-container .hamburger-lines .line {
+          display: block;
+          height: 4px;
+          width: 100%;
+          border-radius: 10px;
+          background: #333;
+        }
+
+        .navbar-container .hamburger-lines .line1 {
+          transform-origin: 0% 0%;
+          transition: transform 0.3s ease-in-out;
+        }
+
+        .navbar-container .hamburger-lines .line2 {
+          transition: transform 0.2s ease-in-out;
+        }
+
+        .navbar-container .hamburger-lines .line3 {
+          transform-origin: 0% 100%;
+          transition: transform 0.3s ease-in-out;
+        }
+
+        .navbar .menu-items {
+          padding-top: 100px;
+          background: #fff;
+          height: 100vh;
+          max-width: 300px;
+          transform: translate(-150%);
+          display: flex;
+          flex-direction: column;
+          margin-left: -40px;
+          padding-left: 40px;
+          transition: transform 0.5s ease-in-out;
+          box-shadow: 5px 0px 10px 0px #aaa;
+          overflow: scroll;
+        }
+
+        .navbar .menu-items li {
+          margin-bottom: 1.8rem;
+          font-size: 1.1rem;
+          font-weight: 500;
+        }
+
+        /* .logo {
+          position: absolute;
+          top: 10px;
+          right: 15px;
+          font-size: 2.5rem;
+      } */
+
+        .navbar-container input[type="checkbox"]:checked ~ .menu-items {
+          transform: translateX(0);
+        }
+
+        .navbar-container
+          input[type="checkbox"]:checked
+          ~ .hamburger-lines
+          .line1 {
+          transform: rotate(45deg);
+        }
+
+        .navbar-container
+          input[type="checkbox"]:checked
+          ~ .hamburger-lines
+          .line2 {
+          transform: scaleY(0);
+        }
+
+        .navbar-container
+          input[type="checkbox"]:checked
+          ~ .hamburger-lines
+          .line3 {
+          transform: rotate(-45deg);
+        }
+      }
+
+      @media (max-width: 500px) {
+        .navbar-container input[type="checkbox"]:checked ~ .logo {
+          display: none;
+        }
+
+        .navbar {
+          background: rgb(255, 255, 255);
+          background: linear-gradient(
+            45deg,
+            rgba(255, 255, 255, 1) 0%,
+            rgba(254, 254, 254, 1) 42%,
+            rgba(134, 31, 65, 1) 49%
+          );
+        }
+
+        .container {
+          padding: 0;
+        }
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        padding: 100px 0 0 0;
+        margin: 0;
+        background: linear-gradient(to right, #fff, rgba(134, 31, 65, 0.095));
+      }
+
+      #logo1 {
+        border: none;
+        order: 1;
+        padding: 2px;
+        font-size: 2.3rem;
+      }
+
+      .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        padding: 20px;
+        position: relative;
+        top: 35px;
+        margin-bottom: 100px;
+      }
+
+      .card {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 20px;
+        margin: 10px;
+
+        width: 25%;
+        /* initially 3 cards in a row */
+        box-sizing: border-box;
+        transition: 0.3s;
+        background: linear-gradient(to bottom, #fff, rgba(134, 31, 65, 0.095));
+        box-shadow: 0 12px 20px rgba(0, 0, 0, 0.327);
+        transform: perspective(1px) translateZ(0);
+        transition-duration: 0.3s;
+        transition-property: transform;
+        height: 400px;
+      }
+
+      .card:hover {
+        box-shadow: 0 8px 50px 0 rgba(0, 0, 0, 0.2);
+        transform: scale(1.1);
+      }
+
+      @media screen and (max-width: 900px) {
+        .card {
+          width: calc(50% - 40px);
+          /* 2 cards in a row when screen size reduces */
+        }
+      }
+
+      @media screen and (max-width: 600px) {
+        .card {
+          width: 100%;
+          /* 1 card in a row for very small screens */
+        }
+      }
+
+      @media (max-width: 768px) {
+        .logo {
+          font-size: 2rem;
+          /* You may want to adjust this value as per your design */
+          max-width: 80px;
+        }
+      }
+
+      @media (max-width: 500px) {
+        .logo {
+          font-size: 1.7rem;
+          /* You may want to adjust this value as per your design */
+          max-width: 70px;
+        }
+      }
+
+      .img {
+        width: 140px;
+        height: 140px;
+        border: 1px solid black;
+        border-radius: 100%;
+        /*  */
+      }
+
+      .imgg {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        /* margin-bottom: 20px; */
+        font-size: 25px;
+        font-weight: bolder;
+
+        object-fit: cover;
+      }
+
+      .details {
+        padding-top: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      p {
+        font-size: 2ch;
+      }
+
+      em {
+        /* text-decoration: underline; */
+        font-weight: bolder;
+        font-size: 2.1ch;
+        font-style: normal;
+        color: rgb(134, 31, 65);
+        top: 0px;
+      }
+
+      /* Footer Styles */
+      footer {
+        width: 100%;
+        background-color: rgb(134, 31, 65);
+        color: #ffffff;
+        text-align: center;
+      }
+
+      .footer-content {
+        padding: 20px 0;
+      }
+
+      .footer-content h3 {
+        margin-bottom: 10px;
+      }
+
+      .footer-content p {
+        margin-bottom: 30px;
+      }
+
+      .socials {
+        list-style: none;
+        padding: 0;
+      }
+
+      .socials li {
+        display: inline-block;
+        margin: 0 10px;
+      }
+
+      .socials li a {
+        color: #ffffff;
+        text-decoration: none;
+      }
+
+      .footer-bottom {
+        padding: 10px 0;
+        background-color: #292929;
+        color: #ffffff;
+        font-size: 14px;
+      }
+
+      .footer-bottom p {
+        margin: 0;
+      }
+
+      /* .footar
+    {
+      height: 10px;
+      /* display: flex;
+      align-items: end; */
+      .head {
+        margin-left: 50px;
+        color: rgb(134, 31, 65);
+        font-size: large;
+      }
+
+      .head2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+      }
+    </style>
+  </body>
+</html>

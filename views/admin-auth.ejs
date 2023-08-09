@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adim-auth</title>
+    <link rel="stylesheet" href="css/apply.css">
+</head>
+<body>
+    <div class="background">
+      <div class="container">
+        <div class="screen">
+          <div class="screen-header">
+            <div class="screen-header-left">
+              <div class="screen-header-button close"></div>
+              <div class="screen-header-button maximize"></div>
+              <div class="screen-header-button minimize"></div>
+            </div>
+            <div class="screen-header-right">
+              <div class="screen-header-ellipsis"></div>
+              <div class="screen-header-ellipsis"></div>
+              <div class="screen-header-ellipsis"></div>
+            </div>
+          </div>
+          <div class="screen-body">
+            <div class="screen-body-item left">
+              <div class="app-title">
+                <span>Admin</span>
+                <span>passcode check</span>
+              </div>
+              <br/>
+              <div class="app-contact">The admin passcode will known only to Axis Bank HR and the admins selected by them. For now we are giving passcode for testing purpose</div>
+            </div>
+            <div class="screen-body-item">
+              <div class="app-form">
+                <form method="post" action="/admin">
+                  <div class="app-form-group">
+                    <input class="app-form-control" placeholder="TEST PASSCODE: 12345" name="passcode">
+                  </div>
+                  <div class="app-form-group buttons">
+                    <button class="app-form-button" type="submit">Enter Passcode</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+</html>

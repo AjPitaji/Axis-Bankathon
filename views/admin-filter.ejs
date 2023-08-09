@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>admin-filter</title>
+    <link rel="stylesheet" href="/css/apply.css" type="text/css" />
+</head>
+<body>
+    <%- include("partial/headerAdmin.ejs" );%>
+    <div class="background">
+        <div class="container">
+            <div class="screen">
+                <div class="screen-header">
+                    <div class="screen-header-left">
+                        <div class="screen-header-button close"></div>
+                        <div class="screen-header-button maximize"></div>
+                        <div class="screen-header-button minimize"></div>
+                    </div>
+                    <div class="screen-header-right">
+                        <div class="screen-header-ellipsis"></div>
+                        <div class="screen-header-ellipsis"></div>
+                        <div class="screen-header-ellipsis"></div>
+                    </div>
+                </div>
+                <div class="screen-body">
+                    <div class="screen-body-item left">
+                        <div class="app-title">
+                            <span>Job Filter</span>
+                            <span>Form</span>
+                        </div>
+                        <br>
+                        <div class="app-contact">Enter job title, description, and click "Filter"</div>
+                    </div>
+                    <div class="screen-body-item">
+                        <!-- Update the form tag to make a POST request to "/filter" -->
+                        <form action="/filter" method="post" class="app-form">
+                            <div class="app-form-group">
+                                <input class="app-form-control" placeholder="Enter job title" name="job">
+                            </div>
+                            <div class="app-form-group">
+                                <input class="app-form-control" placeholder="Enter job description" name="description">
+                            </div>
+                            <div class="app-form-group buttons">
+                                <button type="submit" class="app-form-button">FILTER</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
